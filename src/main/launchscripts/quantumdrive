@@ -1,0 +1,17 @@
+#!/bin/sh
+# quantumdrive - A launchscript for UNIX distributions of the QuantumDrive project
+
+PRG=$0
+
+while [ -h "$PRG" ]; do
+  PRG=`readlink "$PRG"`
+done
+
+DIR=`dirname "$PRG"`
+cd "$DIR"
+
+export LD_LIBRARY_PATH="lib/native"
+
+java -jar '${project.artifactId}-${project.version}.jar'
+
+exit 0

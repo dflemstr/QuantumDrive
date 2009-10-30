@@ -60,9 +60,14 @@ profiles. These are:
 
 If no profile is specified, we will try to guess which operating
 system you're currently running and build a distribution based
-on that information.
+on that information. That is why you will find more build
+configurations in the pom.xml than the ones that are listed above;
+they are used for automatic detection.
 
 We do not currently support using multiple profiles at once.
+
+Since the OpenPandora isn't released yet, we cannot currently
+deploy for it, either.
 
 You will find various generated distributions of our project
 (either as JARs with and without dependencies, or as complete
