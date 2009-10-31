@@ -9,7 +9,7 @@
       <outputDirectory></outputDirectory>
     </file>
     <file>
-      <source>src/main/launchscripts/${launchscript}</source>
+      <source>src/main/script/${launchscript}</source>
       <outputDirectory></outputDirectory>
       <filtered>true</filtered>
       <fileMode>0755</fileMode>
@@ -17,7 +17,7 @@
   </files>
   <fileSets>
     <fileSet>
-      <directory>${project.build.directory}/lib/native</directory>
+      <directory>${project.build.directory}/${natives.path}</directory>
       <outputDirectory>lib/native</outputDirectory>
       <includes>
         <include>*.dll</include>

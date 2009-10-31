@@ -65,6 +65,7 @@
   <!-- Common variables in the various modules -->
   <properties>
     <main.class>org.quantumdrive.Application</main.class>
+    <natives.path>lib/native</natives.path>
     <java.version>1.5</java.version>
     <scala.version>2.7.7</scala.version>
     <jogl.version>2.0</jogl.version>
@@ -367,7 +368,7 @@
             <property>
               <!-- Set the correct natives path for the running -->
               <key>java.library.path</key>
-              <value>${project.build.directory}/lib/native</value>
+              <value>${project.build.directory}/${natives.path}</value>
             </property>
           </systemProperties>
         </configuration>
@@ -391,7 +392,7 @@
                   <classifier>${natives.classifier}</classifier>
                   <type>jar</type>
                   <overWrite>true</overWrite>
-                  <outputDirectory>${project.build.directory}/lib/native</outputDirectory>
+                  <outputDirectory>${project.build.directory}/${natives.path}</outputDirectory>
                 </artifactItem>
               </artifactItems>
             </configuration>
@@ -423,7 +424,7 @@
             </goals>
             <configuration>
               <descriptors>
-                <descriptor>assembly.xml</descriptor>
+                <descriptor>src/main/assembly/distribution.xml</descriptor>
               </descriptors>
             </configuration>
           </execution>
@@ -437,7 +438,7 @@
             <property>
               <!-- Set the correct natives path for the testing -->
               <name>java.library.path</name>
-              <value>${project.build.directory}/lib/native</value>
+              <value>${project.build.directory}/${natives.path}</value>
             </property>
           </systemProperties>
         </configuration>

@@ -1,0 +1,1 @@
+java -jar -Djava.library.path="${natives.path}" "${project.artifactId}-${project.version}.jar"

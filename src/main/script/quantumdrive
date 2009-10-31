@@ -10,7 +10,7 @@ done
 DIR=`dirname "$PRG"`
 cd "$DIR"
 
-export LD_LIBRARY_PATH="lib/native"
+export LD_LIBRARY_PATH="${natives.path}"
 
 java -jar '${project.artifactId}-${project.version}.jar'
 
