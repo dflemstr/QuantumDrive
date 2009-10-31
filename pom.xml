@@ -235,7 +235,7 @@
     <repository>
       <id>local</id>
       <name>Local repository inside of "lib".</name>
-      <url>file://lib/</url>
+      <url>file://lib</url>
     </repository>
     <repository>
       <id>scala-tools-releases</id>
