@@ -7,6 +7,9 @@ import org.quantumdrive.math.immutable.Vec3
 
 class ImmutableVectorTest extends JUnit4(MutableVectorSpecification)
 
+/**
+ * Specifies how mutable vectors must behave to be usable.
+ */
 object MutableVectorSpecification extends Specification {
 
   "A mutable 3D vector" should {

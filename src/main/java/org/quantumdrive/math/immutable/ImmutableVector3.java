@@ -12,5 +12,9 @@ import org.quantumdrive.math.mutable.MutableVector3;
  * Use MutableVector3.view() to generate an immutable vector.
  */
 public interface ImmutableVector3 extends Vector3 {
+    /**
+     * Creates a mutable copy of this vector.
+     * @return A mutable copy of this vector.
+     */
     public MutableVector3 mutable();
 }
