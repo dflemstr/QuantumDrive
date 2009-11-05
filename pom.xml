@@ -317,6 +317,14 @@
       <version>4.4</version>
       <scope>test</scope>
     </dependency>
+
+    <!-- Specs, a Scala-based behavior-driven unit testing framework -->
+    <dependency>
+      <groupId>org.scala-tools.testing</groupId>
+      <artifactId>specs</artifactId>
+      <version>1.6.1</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
   
   <build>
@@ -337,13 +345,29 @@
         <groupId>org.scala-tools</groupId>
         <artifactId>maven-scala-plugin</artifactId>
         <executions>
+          <!-- Use these complex executions to resolve Java ⬌ Scala 
+               circular dependencies -->
           <execution>
+            <id>compile</id>
             <goals>
               <goal>compile</goal>
+            </goals>
+            <phase>compile</phase>
+          </execution>
+          <execution>
+            <id>test-compile</id>
+            <goals>
               <goal>testCompile</goal>
             </goals>
+            <phase>test-compile</phase>
           </execution>
-        </executions>
+          <execution>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+          </execution>
+      </executions>
         <configuration>
           <args>
             <arg>-deprecation</arg>
