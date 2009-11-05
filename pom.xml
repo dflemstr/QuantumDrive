@@ -184,6 +184,12 @@
     </profile>
     <profile>
       <id>windows-amd64</id>
+      <activation>
+        <os>
+          <family>windows</family>
+          <arch>amd64</arch>
+        </os>
+      </activation>
       <properties>
         <natives.classifier>windows-amd64</natives.classifier>
         <launchscript>quantumdrive.bat</launchscript>
