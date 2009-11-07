@@ -58,4 +58,12 @@ case class MVec2(var x: Float, var y: Float) extends MutableVector2 with VectorA
     x = Math.abs(x)
     y = Math.abs(y)
   }
+
+  def +=(that: Vector2) = addLocal(that)
+  def -=(that: Vector2) = subtractLocal(that)
+
+  def +=(scalar: Float) = addLocal(scalar)
+  def -=(scalar: Float) = subtractLocal(scalar)
+  def *=(scalar: Float) = multiplyLocal(scalar)
+  def /=(scalar: Float) = divideLocal(scalar)
 }
