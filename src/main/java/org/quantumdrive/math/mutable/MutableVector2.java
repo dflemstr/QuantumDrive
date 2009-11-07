@@ -18,6 +18,18 @@ public interface MutableVector2 extends Vector2, Cloneable {
     public ImmutableVector2 view();
 
     /**
+     * Changes the value of this vector's X element.
+     * @param value New value.
+     */
+    public void setX(final float value);
+
+    /**
+     * Changes the value of this vector's Y element.
+     * @param value New value.
+     */
+    public void setY(final float value);
+
+    /**
      * Adds a vector to this vector, storing the result in this vector.
      * @param that Second summand
      */

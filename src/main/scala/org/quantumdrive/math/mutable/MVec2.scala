@@ -14,6 +14,10 @@ case class MVec2(var x: Float, var y: Float) extends MutableVector2 with VectorA
   //Implement the methods from the interface:
   def view = new Vec2(x, y)
 
+  def setX(value: Float) = (x = value)
+
+  def setY(value: Float) = (y = value)
+
   def addLocal(that: Vector2) = {
     x += that.getX
     y += that.getY

@@ -14,6 +14,12 @@ case class MVec3(var x: Float, var y: Float, var z: Float) extends MutableVector
   //Implement the methods from the interface:
   def view = new Vec3(x, y, z)
 
+  def setX(value: Float) = (x = value)
+
+  def setY(value: Float) = (y = value)
+  
+  def setZ(value: Float) = (z = value)
+
   def addLocal(that: Vector3) = {
     x += that.getX
     y += that.getY

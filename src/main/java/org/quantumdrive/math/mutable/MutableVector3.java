@@ -18,6 +18,24 @@ public interface MutableVector3 extends Vector3, Cloneable {
     public ImmutableVector3 view();
 
     /**
+     * Changes the value of this vector's X element.
+     * @param value New value.
+     */
+    public void setX(final float value);
+
+    /**
+     * Changes the value of this vector's Y element.
+     * @param value New value.
+     */
+    public void setY(final float value);
+
+    /**
+     * Changes the value of this vector's Z element.
+     * @param value New value.
+     */
+    public void setZ(final float value);
+
+    /**
      * Adds a vector to this vector, storing the result in this vector.
      * @param that Second summand
      */
