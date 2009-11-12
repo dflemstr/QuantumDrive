@@ -11,10 +11,4 @@ import org.quantumdrive.math.mutable.MutableVector2;
  * <br/>
  * Use MutableVector2.view() to generate an immutable vector.
  */
-public interface ImmutableVector2 extends Vector2 {
-    /**
-     * Creates a mutable copy of this vector.
-     * @return A mutable copy of this vector.
-     */
-    public MutableVector2 mutable();
-}
+public interface ImmutableVector2 extends Vector2, ImmutableVector<Vector2, MutableVector2> {}

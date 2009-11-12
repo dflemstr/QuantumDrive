@@ -2,12 +2,12 @@ package org.quantumdrive.math;
 
 import org.quantumdrive.math.immutable.ImmutableVector2;
 import org.quantumdrive.math.immutable.ImmutableVector3;
-import org.quantumdrive.math.immutable.Vec2;
-import org.quantumdrive.math.immutable.Vec3;
+import org.quantumdrive.math.immutable.Vec2Impl;
+import org.quantumdrive.math.immutable.Vec3Impl;
 import org.quantumdrive.math.mutable.MutableVector2;
 import org.quantumdrive.math.mutable.MutableVector3;
-import org.quantumdrive.math.mutable.MVec2;
-import org.quantumdrive.math.mutable.MVec3;
+import org.quantumdrive.math.mutable.MVec2Impl;
+import org.quantumdrive.math.mutable.MVec3Impl;
 
 /**
  * Various vector-related utility methods. Contains factory methods for vectors.
@@ -20,7 +20,7 @@ public class VectorUtil {
      * @return A constructed vector
      */
     public static ImmutableVector2 createVector(final float x, final float y) {
-        return new Vec2(x, y);
+        return new Vec2Impl(x, y);
     }
 
     /**
@@ -31,7 +31,7 @@ public class VectorUtil {
      * @return A constructed vector
      */
     public static ImmutableVector3 createVector(final float x, final float y, final float z) {
-        return new Vec3(x, y, z);
+        return new Vec3Impl(x, y, z);
     }
 
     /**
@@ -41,7 +41,7 @@ public class VectorUtil {
      * @return A constructed vector
      */
     public static ImmutableVector2 Vec2(final float x, final float y) {
-        return new Vec2(x, y);
+        return new Vec2Impl(x, y);
     }
 
     /**
@@ -51,7 +51,7 @@ public class VectorUtil {
      * @return A constructed vector
      */
     public static MutableVector2 MVec2(final float x, final float y, final float z) {
-        return new MVec2(x, y);
+        return new MVec2Impl(x, y);
     }
 
     /**
@@ -62,7 +62,7 @@ public class VectorUtil {
      * @return A constructed vector
      */
     public static ImmutableVector3 Vec3(final float x, final float y, final float z) {
-        return new Vec3(x, y, z);
+        return new Vec3Impl(x, y, z);
     }
 
     /**
@@ -73,6 +73,6 @@ public class VectorUtil {
      * @return A constructed vector
      */
     public static MutableVector3 MVec3(final float x, final float y, final float z) {
-        return new MVec3(x, y, z);
+        return new MVec3Impl(x, y, z);
     }
 }
