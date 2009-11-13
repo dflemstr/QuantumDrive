@@ -10,61 +10,41 @@ import org.quantumdrive.math.immutable.ImmutableVector3;
  * <br/>
  * Use ImmutableVector3.mutable() to generate a mutable vector.
  */
-public interface MutableVector3 extends Vector3, Cloneable {
-    /**
-     * Creates an immutable snapshot of this vector.
-     * @return Immutable snapshot of this vector.
-     */
-    public ImmutableVector3 view();
+public interface MutableVector3 extends Vector3, MutableVector<Vector3, ImmutableVector3>, Cloneable {
 
     /**
-     * Adds a vector to this vector, storing the result in this vector.
-     * @param that Second summand
+     * Changes the value of this vector's X element.
+     * @param value New value.
      */
-    public void addLocal(final Vector3 that);
+    public void setX(final float value);
 
     /**
-     * Subtracts a vector from this vector, storing the result in this vector.
-     * @param that Second operand
+     * Changes the value of this vector's X element.
+     * @param value New value.
      */
-    public void subtractLocal(final Vector3 that);
+    public void x_$eq(final float value);
 
     /**
-     * Adds a scalar to this vector, storing the result in this vector.
-     * @param scalar Second summand
+     * Changes the value of this vector's Y element.
+     * @param value New value.
      */
-    public void addLocal(final float scalar);
+    public void setY(final float value);
 
     /**
-     * Subtracts a scalar from this vector, storing the result in this vector.
-     * @param scalar Second operand
+     * Changes the value of this vector's Y element.
+     * @param value New value.
      */
-    public void subtractLocal(final float scalar);
+    public void y_$eq(final float value);
 
     /**
-     * Scales this vector by a factor, storing the result in this vector.
-     * @param scalar Factor
+     * Changes the value of this vector's Z element.
+     * @param value New value.
      */
-    public void multiplyLocal(final float scalar);
+    public void setZ(final float value);
 
     /**
-     * Scales this vector by the inverse of a factor, storing the result in this vector.
-     * @param scalar Inverse factor
+     * Changes the value of this vector's Z element.
+     * @param value New value.
      */
-    public void divideLocal(final float scalar);
-
-    /**
-     * Caluclates this vector's normalized form (with length 1) and updates this vector with the result.
-     */
-    public void normalize();
-
-    /**
-     * Negates the components of this vector, storing the result in this vector.
-     */
-    public void negate();
-
-    /**
-     * Makes all of this vector's components become positive.
-     */
-    public void makeAbsolute();
+    public void z_$eq(final float value);
 }

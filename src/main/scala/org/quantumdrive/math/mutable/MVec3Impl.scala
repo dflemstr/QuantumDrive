@@ -2,17 +2,23 @@ package org.quantumdrive.math.mutable
 
 import org.quantumdrive.math.Vector3
 import org.quantumdrive.math.VectorArithmetic3
-import org.quantumdrive.math.immutable.Vec3
+import org.quantumdrive.math.immutable.Vec3Impl
 
 /**
  * A MutableVector2 implementation that is used both in Scala and Java.
  * The Scala version has some additional nicities, such as operator support and
  * optimized versions of some common vector operations.
  */
-case class MVec3(var x: Float, var y: Float, var z: Float) extends MutableVector3 with VectorArithmetic3 {
+private[math] case class MVec3Impl(var x: Float, var y: Float, var z: Float) extends MutableVector3 with VectorArithmetic3 {
 
   //Implement the methods from the interface:
-  def view = new Vec3(x, y, z)
+  def view = new Vec3Impl(x, y, z)
+
+  def setX(value: Float) = (x = value)
+
+  def setY(value: Float) = (y = value)
+  
+  def setZ(value: Float) = (z = value)
 
   def addLocal(that: Vector3) = {
     x += that.getX

@@ -1,10 +1,13 @@
 package org.quantumdrive.math.immutable
 
 import org.quantumdrive.math.VectorArithmetic2
+import org.quantumdrive.math.mutable.MVec2Impl
 
 /**
  * An ImmutableVector2 implementation that is used both in Scala and Java.
  * The Scala version has some additional nicities, such as operator support and
  * optimized versions of some common vector operations.
  */
-case class Vec2(val x: Float, val y: Float) extends ImmutableVector2 with VectorArithmetic2
+private[math] case class Vec2Impl(val x: Float, val y: Float) extends ImmutableVector2 with VectorArithmetic2 {
+  def mutable = new MVec2Impl(x, y)
+}
