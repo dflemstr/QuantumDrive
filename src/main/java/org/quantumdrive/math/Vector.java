@@ -6,6 +6,12 @@ package org.quantumdrive.math;
 public interface Vector<VecN, ImmutableVecN> {
 
     /**
+     * The number of covered spatial dimensions this vector has.
+     * @return Dimension number
+     */
+    public float dimension();
+
+    /**
      * Adds another vector to this vector, returning a new vector (this vector isn't modified).
      * @param that Second summand
      * @return Sum

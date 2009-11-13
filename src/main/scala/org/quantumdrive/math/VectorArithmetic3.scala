@@ -12,6 +12,8 @@ private[math] trait VectorArithmetic3 extends Vector3 {
   def z: Float
 
   //Implement the methods from the interface:
+  def dimension = 3
+  
   def getX = x
   def getY = y
   def getZ = z

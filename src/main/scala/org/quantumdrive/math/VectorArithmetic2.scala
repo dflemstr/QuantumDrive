@@ -11,6 +11,8 @@ private[math] trait VectorArithmetic2 extends Vector2 {
   def y: Float
 
   //Implement the methods from the interface:
+  def dimension = 2
+
   def getX = x
   def getY = y
 
