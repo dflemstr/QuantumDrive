@@ -8,6 +8,7 @@ import org.quantumdrive.math.mutable.MVec2Impl
  * The Scala version has some additional nicities, such as operator support and
  * optimized versions of some common vector operations.
  */
-private[math] case class Vec2Impl(val x: Float, val y: Float) extends ImmutableVector2 with VectorArithmetic2 {
-  def mutable = new MVec2Impl(x, y)
+private[math] final case class Vec2Impl(final val x: Float, final val y: Float)
+    extends ImmutableVector2 with VectorArithmetic2 {
+  final def mutable = new MVec2Impl(x, y)
 }
