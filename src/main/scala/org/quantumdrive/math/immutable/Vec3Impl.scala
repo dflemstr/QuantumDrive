@@ -8,6 +8,7 @@ import org.quantumdrive.math.mutable.MVec3Impl
  * The Scala version has some additional nicities, such as operator support and
  * optimized versions of some common vector operations.
  */
-private[math] case class Vec3Impl(val x: Float, val y: Float, val z: Float) extends ImmutableVector3 with VectorArithmetic3 {
-  def mutable = new MVec3Impl(x, y, z)
+private[math] final case class Vec3Impl(final val x: Float, final val y: Float, final val z: Float)
+    extends ImmutableVector3 with VectorArithmetic3 {
+  final def mutable = new MVec3Impl(x, y, z)
 }

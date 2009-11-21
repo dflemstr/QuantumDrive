@@ -25,7 +25,7 @@ public interface Vector3 extends Vector<Vector3, ImmutableVector3> {
      * @return The y-component of this vector.
      */
     public float y();
-    
+
     /**
      * @return The y-component of this vector.
      */

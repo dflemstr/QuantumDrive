@@ -1,16 +1,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  
+ 
   <!-- This is the Apache Maven "build file" for this project -->
-    
+   
   <!-- Please refer to http://maven.apache.org/pom.html if you are
        unsure about how this document is structured -->
-  
+ 
   <!-- Artifact information -->
   <groupId>org.quantumdrive</groupId>
   <artifactId>quantumdrive</artifactId>
   <version>1.0-SNAPSHOT</version>
-  
+ 
   <!-- Project information -->
   <name>QuantumDrive RTS</name>
   <description>Real time strategy game for the OpenPandora platform.</description>
@@ -24,13 +24,13 @@
       <comments>A very popular OSS license</comments>
     </license>
   </licenses>
-  
+ 
   <!-- Project team information -->
   <organization>
     <name>The QuantumDrive development team</name>
     <url>http://quantumdrive.dyndns.org</url>
   </organization>
-  
+ 
   <!-- Project team member information -->
   <developers>
     <!-- If you feel like you are a "regular" developer and not just a
@@ -49,19 +49,19 @@
       <timezone>+1</timezone>
     </developer>
   </developers>
-  
+ 
   <contributors>
     <!-- If you have contributed a "small" piece of code or data, add yourself
          here (preferrably in the same commit that your changes are in): -->
   </contributors>
-  
+ 
   <!-- Source code management information -->
   <scm>
     <connection>scm:git://github.com/Keaft/QuantumDrive.git</connection>
     <developerConnection>scm:git:git@github.com:Keaft/QuantumDrive.git</developerConnection>
     <url>http://github.com/Keaft/QuantumDrive/tree/master</url>
   </scm>
-  
+ 
   <!-- Common variables in the various modules -->
   <properties>
     <main.class>org.quantumdrive.Application</main.class>
@@ -70,7 +70,7 @@
     <scala.version>2.7.7</scala.version>
     <jogl.version>2.0</jogl.version>
   </properties>
-  
+ 
   <!-- Our build profiles -->
   <profiles>
     <profile>
@@ -235,7 +235,7 @@
       </properties>
     </profile>
   </profiles>
-  
+ 
   <!-- Dependency repositories -->
   <repositories>
     <repository>
@@ -254,7 +254,7 @@
       <url>http://scala-tools.org/repo-snapshots</url>
     </repository>
   </repositories>
-  
+ 
   <!-- Maven plugin repositories -->
   <pluginRepositories>
     <pluginRepository>
@@ -263,7 +263,7 @@
       <url>http://scala-tools.org/repo-releases</url>
     </pluginRepository>
   </pluginRepositories>
-  
+ 
   <!-- Dependencies that this project uses, including version info. -->
   <dependencies>
     <!-- Scala, an object-oriented functional programming language -->
@@ -272,21 +272,28 @@
       <artifactId>scala-library</artifactId>
       <version>${scala.version}</version>
     </dependency>
-    
+   
+    <!-- The Native Scala Compiler, a fast Scala compiler written in Scala -->
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-compiler</artifactId>
+      <version>${scala.version}</version>
+    </dependency>
+   
     <!-- Log4J, a logging framework -->
     <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
       <version>1.2.14</version>
     </dependency>
-    
+   
     <!-- JOGL, managed OpenGL bindings for Java -->
     <dependency>
       <groupId>org.quantumdrive</groupId>
       <artifactId>jogl</artifactId>
       <version>${jogl.version}</version>
     </dependency>
-    
+   
     <!-- JOGL natives, various native libraries for various target platforms -->
     <dependency>
       <groupId>org.quantumdrive</groupId>
@@ -294,28 +301,28 @@
       <version>${jogl.version}</version>
       <classifier>${natives.classifier}</classifier>
     </dependency>
-    
+   
     <!-- Gluegen-RT, a tool for producing JNI native library bindings -->
     <dependency>
       <groupId>org.quantumdrive</groupId>
       <artifactId>gluegen-rt</artifactId>
       <version>1.0-beta07</version>
     </dependency>
-    
+   
     <!-- NativeWindow, a library that gives you access to a platforms native windowing system -->
     <dependency>
       <groupId>org.quantumdrive</groupId>
       <artifactId>nativewindow</artifactId>
       <version>1.0</version>
     </dependency>
-    
+   
     <!-- NEWT Runtime Environment, a Sun runtime environment -->
     <dependency>
       <groupId>org.quantumdrive</groupId>
       <artifactId>newt</artifactId>
       <version>1.0</version>
     </dependency>
-    
+   
     <!-- JUnit, a Java-based unit testing framework -->
     <dependency>
       <groupId>junit</groupId>
@@ -332,7 +339,7 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  
+ 
   <build>
     <!-- Some standard plugin templates for submodules' build processes -->
     <plugins>
@@ -351,7 +358,7 @@
         <groupId>org.scala-tools</groupId>
         <artifactId>maven-scala-plugin</artifactId>
         <executions>
-          <!-- Use these complex executions to resolve Java ⬌ Scala 
+          <!-- Use these complex executions to resolve Java ⬌ Scala
                circular dependencies -->
           <execution>
             <id>compile</id>

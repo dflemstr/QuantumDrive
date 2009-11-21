@@ -1,9 +1,11 @@
 package org.quantumdrive.math.mutable;
 
+import org.quantumdrive.math.immutable.Immutability;
+
 /**
  * Provides common methods for all n-dimensional mutable vector types
  */
-public interface MutableVector<VecN, ImmutableVecN> {
+public interface MutableVector<VecN, ImmutableVecN> extends Immutability<ImmutableVecN> {
     /**
      * Creates an immutable snapshot of this vector.
      * @return Immutable snapshot of this vector.
