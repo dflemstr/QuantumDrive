@@ -18,7 +18,7 @@ private[math] final case class MVec3Impl(final var x: Float, final var y: Float,
   def setX(value: Float) = (x = value)
 
   def setY(value: Float) = (y = value)
-  
+ 
   def setZ(value: Float) = (z = value)
 
   def addLocal(that: Vector3) = {
@@ -62,7 +62,7 @@ private[math] final case class MVec3Impl(final var x: Float, final var y: Float,
     y /= length
     z /= length
   }
-  
+ 
   def negate = {
     x = -x
     y = -y
@@ -77,7 +77,7 @@ private[math] final case class MVec3Impl(final var x: Float, final var y: Float,
 
   def +=(that: Vector3) = addLocal(that)
   def -=(that: Vector3) = subtractLocal(that)
-  
+ 
   def +=(scalar: Float) = addLocal(scalar)
   def -=(scalar: Float) = subtractLocal(scalar)
   def *=(scalar: Float) = multiplyLocal(scalar)

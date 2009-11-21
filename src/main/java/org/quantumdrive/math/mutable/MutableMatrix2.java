@@ -14,40 +14,40 @@ public interface MutableMatrix2 extends Matrix2, MutableMatrix<Matrix2, Immutabl
     /**
      * Sets the matrixes value at (0, 0)
      */
-    public void setC11(final float value);
+    public void setC00(final float value);
 
     /**
      * Sets the matrixes value at (0, 1)
      */
-    public void setC12(final float value);
+    public void setC01(final float value);
 
     /**
      * Sets the matrixes value at (1, 0)
      */
-    public void setC21(final float value);
+    public void setC10(final float value);
 
     /**
      * Sets the matrixes value at (1, 1)
      */
-    public void setC22(final float value);
+    public void setC11(final float value);
 
     /**
      * Sets the matrixes value at (0, 0)
      */
-    public void c11_$eq(final float value);
+    public void c00_$eq(final float value);
 
     /**
      * Sets the matrixes value at (0, 1)
      */
-    public void c12_$eq(final float value);
+    public void c01_$eq(final float value);
 
     /**
      * Sets the matrixes value at (1, 0)
      */
-    public void c21_$eq(final float value);
+    public void c10_$eq(final float value);
 
     /**
      * Sets the matrixes value at (1, 1)
      */
-    public void c22_$eq(final float value);
+    public void c11_$eq(final float value);
 }

@@ -17,7 +17,7 @@ public interface Vector<VecN, ImmutableVecN> {
      * @return Sum
      */
     public ImmutableVecN add(final VecN that);
-    
+
     /**
      * Adds another vector to this vector, returning a new vector (this vector isn't modified).
      * @param that Second summand
@@ -31,7 +31,7 @@ public interface Vector<VecN, ImmutableVecN> {
      * @return Difference
      */
     public ImmutableVecN subtract(final VecN that);
-    
+
     /**
      * Subtracts another vector from this vector, returning a new vector (this vector isn't modified).
      * @param that Second operand
@@ -45,7 +45,7 @@ public interface Vector<VecN, ImmutableVecN> {
      * @return Sum
      */
     public ImmutableVecN add(final float scalar);
-    
+
     /**
      * Adds a scalar to this vector, essentially adding the value to all of the vector components. Returns a new vector.
      * @param scalar Second summand
@@ -66,7 +66,7 @@ public interface Vector<VecN, ImmutableVecN> {
      * @return Difference
      */
     public ImmutableVecN $minus(final float scalar);
-    
+
     /**
      * Scales this vector by a factor. Returns a new vector.
      * @param scalar Factor
@@ -137,7 +137,7 @@ public interface Vector<VecN, ImmutableVecN> {
      * @return This vector's absolute
      */
     public ImmutableVecN absolute();
-    
+
     /**
      * Returns a vector using the absolute values of this vector's components.
      * @return This vector's absolute

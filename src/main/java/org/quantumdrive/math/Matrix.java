@@ -23,18 +23,18 @@ public interface Matrix<MatN, VecN, ImmutableMatN, ImmutableVecN> {
      * @param x Column to access
      * @param y Row to access
      * @return Value at the column x and row y
-     * @throws IndexOutOfBoundsException when x or y are outside [0; dimension - 1]
+     * @throws ArrayIndexOutOfBoundsException when x or y are outside [0; dimension - 1]
      */
-    public float apply(final int x, final int y) throws IndexOutOfBoundsException;
+    public float apply(final int x, final int y) throws ArrayIndexOutOfBoundsException;
 
     /**
      * Accesses the element (x,y) of the matrix.
      * @param x Column to access
      * @param y Row to access
      * @return Value at the column x and row y
-     * @throws IndexOutOfBoundsException when x or y are outside [0; dimension - 1]
+     * @throws ArrayIndexOutOfBoundsException when x or y are outside [0; dimension - 1]
      */
-    public float getC(final int x, final int y) throws IndexOutOfBoundsException;
+    public float getC(final int x, final int y) throws ArrayIndexOutOfBoundsException;
 
     /**
      * Adds a scalar to each element of this matrix
@@ -126,13 +126,6 @@ public interface Matrix<MatN, VecN, ImmutableMatN, ImmutableVecN> {
      * @return Adjusted matrix
      */
     public ImmutableMatN multiplyTranspose(final MatN matrix);
-
-    /**
-     * Multiplies the transpose of this matrix by another matrix
-     * @param matrix The matrix to multiply by
-     * @return Adjusted matrix
-     */
-    public ImmutableMatN $times_T(final MatN matrix);
 
     /**
      * Transforms (multiplies) the given vector using this matrix.

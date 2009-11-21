@@ -10,40 +10,40 @@ public interface Matrix2 extends Matrix<Matrix2, Vector2, ImmutableMatrix2, Immu
     /**
      * The matrixes value at (0, 0)
      */
-    public float getC11();
-    
+    public float getC00();
+
     /**
      * The matrixes value at (0, 1)
      */
-    public float getC12();
+    public float getC01();
 
     /**
      * The matrixes value at (1, 0)
      */
-    public float getC21();
+    public float getC10();
 
     /**
      * The matrixes value at (1, 1)
      */
-    public float getC22();
+    public float getC11();
 
     /**
      * The matrixes value at (0, 0)
      */
-    public float c11();
+    public float c00();
 
     /**
      * The matrixes value at (0, 1)
      */
-    public float c12();
+    public float c01();
 
     /**
      * The matrixes value at (1, 0)
      */
-    public float c21();
+    public float c10();
 
     /**
      * The matrixes value at (1, 1)
      */
-    public float c22();
+    public float c11();
 }

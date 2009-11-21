@@ -13,7 +13,7 @@ private[math] trait VectorArithmetic3 extends Vector3 {
 
   //Implement the methods from the interface:
   final def dimension = 3
-  
+ 
   final def getX = x
   final def getY = y
   final def getZ = z

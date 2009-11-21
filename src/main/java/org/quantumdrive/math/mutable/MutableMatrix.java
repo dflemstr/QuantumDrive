@@ -1,32 +1,29 @@
 package org.quantumdrive.math.mutable;
 
+import org.quantumdrive.math.immutable.Immutability;
+
 /**
  * Provides common methods for all n-by-n mutable matrix types
  */
-public interface MutableMatrix<MatN, ImmutableMatN> {
-    /**
-     * Creates an immutable snapshot of this matrix.
-     * @return Immutable snapshot of this matrix.
-     */
-    public ImmutableMatN view();
+public interface MutableMatrix<MatN, ImmutableMatN> extends Immutability<ImmutableMatN> {
 
     /**
      * Changes the value in cell (x,y) of this matrix
      * @param x The column number to change
      * @param y The row number to change
      * @param value The new value for (x,y)
-     * @throws IndexOutOfBoundsException when x or y are outside [0; dimension - 1]
+     * @throws ArrayIndexOutOfBoundsException when x or y are outside [0; dimension - 1]
      */
-    public void update(final int x, final int y, final float value) throws IndexOutOfBoundsException;
-    
+    public void update(final int x, final int y, final float value) throws ArrayIndexOutOfBoundsException;
+
     /**
      * Changes the value in cell (x,y) of this matrix
      * @param x The column number to change
      * @param y The row number to change
      * @param value The new value for (x,y)
-     * @throws IndexOutOfBoundsException when x or y are outside [0; dimension - 1]
+     * @throws ArrayIndexOutOfBoundsException when x or y are outside [0; dimension - 1]
      */
-    public void setC(final int x, final int y, final float value) throws IndexOutOfBoundsException;
+    public void setC(final int x, final int y, final float value) throws ArrayIndexOutOfBoundsException;
 
     /**
      * Adds a scalar to this matrix, storing the result in this matrix

@@ -20,7 +20,7 @@ public interface Vector2 extends Vector<Vector2, ImmutableVector2> {
      * @return The y-component of this vector.
      */
     public float getY();
-    
+
     /**
      * @return The y-component of this vector.
      */
