@@ -1,6 +1,6 @@
 package org.quantumdrive.core;
 
-import scala.actors.Actor;
+import scala.actors.OutputChannel;
 
 /**
  * A player that the core can interact with
@@ -19,9 +19,9 @@ public interface Player {
     public String getId();
 
     /**
-     * This should produce the Actor that the core should send messages to.
-     * This method has to return the same actor every time.
-     * @return an instance of an Actor that is used for message passing.
+     * This should produce the OutputChannel that the core should send messages to.
+     * This method has to return the same OutputChannel every time.
+     * @return an instance of an OutputChannel that is used for message passing.
      */
-    public Actor getActor();
+    public OutputChannel<Object> getChannel();
 }

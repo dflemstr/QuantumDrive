@@ -2,49 +2,72 @@ package org.quantumdrive.core
 
 import scala.actors._
 import org.quantumdrive.core.message._
+import org.quantumdrive.core.model._
 import scala.actors.Actor._
 
 class RealTimeCore() extends Core {
-  private var state = State.Startup
-  private var players = List[Player]()
-  private var map: Option[MetaMap] = None
+  @volatile private var state = State.Inactive
+  @volatile private var players = List[Player]()
+  @volatile private var metaMap: Option[MetaMap] = None
   
   def initialize() = {
-    //TODO: implement
+    //Starts the actor
+    start()
+    state = State.Startup
   }
-
-  private def shoutBack(error: String) = reply(new RuntimeException(error))
 
   /** Top-level message dispatcher: dispatches messages depending on which state we're in */
   def act = loop {
-    state match {
-      case State.Startup =>
-        receive(handleStartup orElse {case x => shoutBack("Can't handle " + x + " during startup!")})
-      case State.Ingame =>
-        receive(handleIngame orElse {case x => shoutBack("Can't handle " + x + " in-game!")})
-      case State.Shutdown =>
-        receive(handleShutdown orElse {case x => shoutBack("Can't handle " + x + " during shutdown!")})
+    receive {
+      case msg: StartupMessage  if state == State.Startup  && (handleStartup  isDefinedAt msg) =>
+        handleStartup(msg)
+      case msg: IngameMessage   if state == State.Ingame   && (handleIngame   isDefinedAt msg) =>
+        handleIngame(msg)
+      case msg: ShutdownMessage if state == State.Shutdown && (handleShutdown isDefinedAt msg) =>
+        handleShutdown(msg)
+      case x =>
+        reply(OperationNotSupported("Cannot handle this message right now."))
     }
   }
 
-  private val handleStartup: PartialFunction[Any, Unit] = {
+  /** Handles startup messages */
+  private val handleStartup: PartialFunction[StartupMessage, Unit] = {
     case AddPlayer(player) =>
       players ::= player
       reply(OK)
     case SetMap(map) =>
-      this.map = Some(map)
+      metaMap = Some(map)
       reply(OK)
+    case StartGame => metaMap match {
+      case Some(map) =>
+        try {
+          loadMap(map)
+          state = State.Ingame
+          players.foreach(_.getChannel! GameStarted)
+          reply(OK)
+        } catch {
+          case x => reply(OperationFailed("Map could not be loaded, error: " + x.getMessage))
+        }
+      case None =>
+        reply(NoMapSpecified("No map loaded!"))
+    }
   }
 
-  private val handleIngame: PartialFunction[Any, Unit] = {
+  /** Handles in-game messages */
+  private val handleIngame: PartialFunction[IngameMessage, Unit] = {
     case _ => 
   }
 
-  private val handleShutdown: PartialFunction[Any, Unit] = {
+  /** Handles shutdown messages */
+  private val handleShutdown: PartialFunction[ShutdownMessage, Unit] = {
     case _ =>
   }
 
+  private def loadMap(map: MetaMap) = {
+    
+  }
+
   private object State extends Enumeration {
-    val Startup, Ingame, Shutdown = Value
+    val Inactive, Startup, Ingame, Shutdown = Value
   }
 }
